@@ -49,3 +49,26 @@ console.log(typeof anotherId);
 //        Object  =>  object
 
 // Docs : https://262.ecma-international.org/5.1/#sec-11.4.3
+
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// Stack (Primitive) -> give a copy of original variable , Heap (Non-Primitive) -> give a reference to original variable
+
+//Stack
+let mySiteName = "zulqarnian.com"
+let anotherSiteame = mySiteName
+anotherSiteame = "zulqarnainnaviwala.com"
+console.log(mySiteName)
+console.log(anotherSiteame)
+
+//Heap
+let userOne  =  {
+    email: "zulqarnain@google.com",
+    age: 25
+}
+let userTwo = userOne
+userTwo.email = "zulqarnainnaviwala@google.com"
+console.log(userOne.email)
+console.log(userTwo.email)
+
