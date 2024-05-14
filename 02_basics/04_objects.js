@@ -62,3 +62,29 @@ users[1].email
 // console.log(tinderUser.hasOwnProperty('isLogged')); 
 
 
+const course = {
+    coursename: "js beginner to advance",
+    price: "999",
+    courseInstructor: "zulqarnain naviwala"
+}
+
+// course.courseInstructor
+// const {courseInstructor} = course
+const {courseInstructor: instructor} = course //remain 
+
+// console.log(courseInstructor);
+console.log(instructor);
+
+
+// JSON example : keys,values both in ""
+// {
+//     "name": "zulqarnain",
+//     "coursename": "js beginner to advance",
+//     "price": "free"
+// }
+
+// [
+//     {},
+//     {},
+//     {}
+// ]
