@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating Element through DOM </title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    
+</body>
+<script>
+    //CREATING ELEMENT/TAG
+    const div = document.createElement('div')
+    console.log(div);
+    div.className = "main"
+    div.id = Math.round(Math.random() * 10 + 1)
+    div.setAttribute("title", "generated title")
+    div.style.backgroundColor = "green"
+    div.style.padding = "12px"
+
+    // ADDING TEXT IN DIV
+    // not preferable , pehly values select kr k laata hai phr overwrite krta (bts, it's not an optimized approach)
+    // div.innerText = "Hello World" 
+    
+    //that's preferable and optimised approach create text node and append
+    const addText = document.createTextNode("Hello World")
+    div.appendChild(addText)
+
+    //ADDING ON BROWSER TO VISIBLE ON FRONTEND
+    document.body.appendChild(div)
+</script>
+</html>
