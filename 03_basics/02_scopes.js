@@ -11,3 +11,25 @@ if (true) {
 // console.log(b);
 // console.log(c);
 
+
+function one(){
+    const username = "zulqarnain"
+    function two(){
+        const website = "youtube"
+        // console.log(username); ////check username access
+    }
+    // console.log(website); //check website access 
+     two()
+}
+// one()
+
+if (true) {
+    const username = "zulqar"
+    if (username === "zulqar") {
+        const website = " github"
+        // console.log(username + website);
+    }
+    // console.log(website);
+}
+// console.log(username);
+
