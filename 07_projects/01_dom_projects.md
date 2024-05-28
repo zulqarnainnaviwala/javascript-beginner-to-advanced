@@ -72,4 +72,21 @@ form.addEventListener('submit', function (e) {
 
 ```
 
+## project 3 Solution code
 
+```javascript
+
+const clock = document.getElementById('clock');
+//OR
+// const clock = document.querySelector('#clock')
+
+//to run a specific task repeatidly , we have a func setInterval in js
+//syntax : setInterval(function, time in mili seconds)
+
+setInterval(function () {
+  let date = new Date();
+  // console.log(date.toLocaleTimeString());
+  clock.innerHTML = date.toLocaleTimeString();
+}, 1000);
+
+```
