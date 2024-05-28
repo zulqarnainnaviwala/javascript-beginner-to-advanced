@@ -38,3 +38,38 @@ buttons.forEach(function (button) {
 });
 
 ```
+
+## project 2 Solution code
+
+```javascript
+const form = document.querySelector('form');
+// this usecases will give you empty : page load hoty hi empty values set hojayengi height & weight , and we needs values at the time when yo press calculate button.
+// const height = parseInt(document.querySelector('#height').value)
+// const weight = parseInt(document.querySelector('#weight').value);
+
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  //   Number() accepts only "digit strings". For example: "34", "-56", "3.14", "6.022e23", etc. are all valid for Number()
+
+  // While, parseInt() accepts those strings which may or may not have non-digit character(s) at the end of string. For example: "34", "34foo" and "34bar34" will all return the number 34. But "foo34" will return NaN.
+
+  const height = parseInt(document.querySelector('#height').value);
+  const weight = parseInt(document.querySelector('#weight').value);
+  const results = document.querySelector('#results');
+
+  //multiple checks : empty , greater than 0 , isNaN -> return boolean ( is a number is convertable to int or not )
+  if (height === '' || height < 0 || isNaN(height)) {
+    results.innerHTML = `Please give a valid height ${height}`;
+  } else if (weight === '' || weight < 0 || isNaN(weight)) {
+    results.innerHTML = `Please give a valid weight ${weight}`;
+  } else {
+    const bmi = (weight / ((height * height) / 10000)).toFixed(2);
+    //show the result
+    results.innerHTML = `<span>${bmi}</span>`;
+  }
+});
+
+```
+
+
