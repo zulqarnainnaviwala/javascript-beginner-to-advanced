@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events | JS</title>
+</head>
+<body>
+    <h1>Hello</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    const sayZulqarnain = function(){
+        console.log("Zulqarnain");
+    }
+    const changeText = function(){
+        document.querySelector('h1').innerHTML = "World"
+    }
+
+    //perform a specified task at some time 
+    const changeMe = setTimeout(changeText, 2000)
+
+    document.querySelector('#stop').addEventListener('click', function(){
+        //stop a specified setTimeout before it's excution time
+        clearTimeout(changeMe)
+        console.log("STOPPED")
+    })
+</script>
+</html>
