@@ -87,3 +87,35 @@ promiseFour
 })
 .finally(() => console.log("The promise is either resolved or rejected"))
 
+// creation of promise 
+const promiseFive = new Promise(function(resolve, reject){
+    setTimeout(function(){
+        let error = true
+        if (!error) {
+            resolve({username: "javascript", password: "123"})
+        } else {
+            reject('ERROR: javascript went wrong')
+        }
+    }, 1000)
+});
+
+//here is a twist : it is not necessary that we should consume a promise with .then() .catch() ONLY. there is another approach to handle a promise i.e using async await 
+//consumption of promiseFive using asyn await approach
+async function consumePromiseFive(){
+        // await promiseFive() //remember promise is an Object(eventual completion or failure), so we can't consume it like "()"
+        const response = await promiseFive
+        console.log(response);
+        console.log(error);
+}
+consumePromiseFive()
+
+//if there is a catch(error in promise) , asyn await approach can't handle the error directly so we have use try catch with it to acheive error gracefully wrna code phat jayegaaaa  
+async function consumePromiseFive(){
+    try {
+        const response = await promiseFive
+        console.log(response);
+    } catch (error) {
+        console.log(error);
+    }
+}
+consumePromiseFive()
