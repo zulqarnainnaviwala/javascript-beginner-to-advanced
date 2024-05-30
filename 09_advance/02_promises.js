@@ -119,3 +119,35 @@ async function consumePromiseFive(){
     }
 }
 consumePromiseFive()
+
+// ----------------------****************----------------------
+// https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
+// this is the documentation that all browsers (mozilla , chrome , safari) read and understand how fetch works : https://fetch.spec.whatwg.org/#fetch-method
+// Read: https://dev.to/logrocket/the-fetch-api-is-finally-coming-to-nodejs-foe
+// Read: https://blog.logrocket.com/fetch-api-node-js
+
+//using fetch() promise with asyn await 
+// async function getAllUsers(){
+//     try {
+//         const response = await fetch('https://jsonplaceholder.typicode.com/users')
+//         const data = await response.json()
+//         console.log(data);
+//     } catch (error) {
+//         console.log("E: ", error);
+//     }
+// }
+// getAllUsers()
+
+// using fetch() promise with .then() .catch() 
+fetch('https://api.github.com/users/zulqarnainnaviwala')
+.then((response) => {
+    return response.json()
+})
+.then((data) => {
+    console.log(data);
+})
+.catch((error) => console.log(error))
+
+// agar ap opar ka sara code thek sath run kren to dekhengy fetch sb se end likha hai but console sb se pehly print huwa hai , this is the power WebApi (fetch) , iska reason ye hai k jb bhi javascript code run hota hai to setTimeOut aur setInterval jese functions "callback queue" me rehty hain phr execute hojaty hain but fetch ka aesa nh fetch k liye ek special queue bnti hai jisay micro task queue/priority queue/fetch queue kehty hain. let say if there are two task  (fetch and setTimeOut) having same 1 second execution time us case me bhi fetch pehly run hoga  
+
+// Even though the code sequence indicates that "fetch" comes last, it actually executes first due to the unique nature of Web API's fetch functionality. This is because, unlike other asynchronous operations like setTimeout or setInterval, fetch tasks are queued differently. They are placed in a special queue known as the micro task queue, priority queue, or fetch queue. Therefore, even if there are multiple tasks with the same execution time, such as fetch and setTimeout, fetch will still be prioritized and executed before others.
