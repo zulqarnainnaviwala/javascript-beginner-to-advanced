@@ -40,3 +40,14 @@ new Promise(function(resolve, reject){
 }).then(function(){
     console.log("Async 2 resolved");
 })
+
+//data consumption in promise by passing into resolve() which is by default connected to .then()
+const promiseThree = new Promise(function(resolve, reject){
+    setTimeout(function(){
+        resolve({username: "zulqarnain", email: "zulqarnain@example.com"}) //mostly you will see an object passed in resolve() but it is not not necessary it could be any type of data
+    }, 1000)
+})
+
+promiseThree.then(function(user){
+    console.log(user);
+})
