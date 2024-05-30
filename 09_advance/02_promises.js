@@ -51,3 +51,39 @@ const promiseThree = new Promise(function(resolve, reject){
 promiseThree.then(function(user){
     console.log(user);
 })
+
+//now exploring how reject() works
+const promiseFour = new Promise(function(resolve, reject){
+    setTimeout(function(){
+        let error = true
+        // let error = false
+        if (!error) {
+            resolve({username: "zulqarnain", password: "secure"})
+        } else {
+            reject('ERROR: Something went wrong')
+        }
+    }, 1000)
+})
+
+// comsumption on promiseFour to check could we hold returned value of promise? 
+// const username = promiseFour
+// .then((user) => {
+//    console.log(user);
+//    return user.username
+// })
+// console.log(username) //the answer is promise is in pending state and it's not possible 
+
+//comsumption on promiseFour with chaining (to catch previous function is returned value next .then() ) and how to avoid callback hell. Also will use catch() for error and finally() for feedback (finally will always run just like default case)
+promiseFour
+.then((user) => {
+    console.log(user);
+    return user.username
+})
+.then((username) => {
+    console.log(username);
+})
+.catch(function(error){
+    console.log(error);
+})
+.finally(() => console.log("The promise is either resolved or rejected"))
+
