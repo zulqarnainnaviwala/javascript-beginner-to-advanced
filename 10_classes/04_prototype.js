@@ -67,3 +67,10 @@ anotherUser.trueLength()
 
 // __proto__ is outdated aproach, modern syntax is Object.setPrototypeOf(to,from)
 // Object.setPrototypeOf(TeachingSupport, Teacher)
+
+//--------------------------------------------------------------------------
+
+// extra knowledge :
+// prototypal behaviour -> keep finding for something from child to parent, grand parent and so on 
+// and arrow functions me this ka access na hona isi prototype ki wjh se nh hota
+// q k javacript me "new, classes, this, inheritance etc" ka access isi "Prototype" ki wjh se milta hai 
