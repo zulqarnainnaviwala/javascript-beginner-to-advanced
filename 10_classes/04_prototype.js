@@ -31,11 +31,9 @@ Array.prototype.heyZul = function(){
 // myHeros.heyZul()
 // heroPower.heyZul() //caught error : means Object is the top most hierarchy so prototypes declared there are accessible to all kind of objects but if it's declared to Array hierarchy it is limited to that only 
 
-
 // ---------------- Back to our task ------------------
 
 let anotherUser = "atim     "
-
 //adding prototype on String hierarchy 
 String.prototype.trueLength = function(){
     console.log(`${this}`);
@@ -46,3 +44,26 @@ myFriend.trueLength()
 anotherUser.trueLength()
 "saif     ".trueLength()
 "aleem  ".trueLength()
+
+// -------- Prototypal Inheritance (to access properties of others dynamically) ----------
+// const User = {
+//     name: "zulqarnain",
+//     email: "johndoe@example.com"
+// }
+// const Teacher = {
+//     makeVideo: true
+// }
+// const TeachingSupport = {
+//     isAvailable: false
+// }
+// const TASupport = {
+//     makeAssignment: 'JS assignment',
+//     fullTime: true,
+//     __proto__: TeachingSupport //Prototypal Inheritance TASupport has access to properties of TeachingSupport
+// }
+
+//Global Prototypal Inheritance
+// Teacher.__proto__ = User //Teacher has access to properties of User
+
+// __proto__ is outdated aproach, modern syntax is Object.setPrototypeOf(to,from)
+// Object.setPrototypeOf(TeachingSupport, Teacher)
