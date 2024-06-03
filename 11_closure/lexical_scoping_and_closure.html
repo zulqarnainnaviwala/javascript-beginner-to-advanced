@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lexical Scoping & Closure</title>
+    </head>
+    <body style="background-color: #313131;">
+        <button id="orange">Orange</button>
+        <button id="green">Green</button>
+   
+        <script>
+        //Lexical scoping
+        // function init() {
+        //     let name = "Chrome"; 
+        //     function displayName() {
+        //         console.log(name); //name is declared in init func and it is accessible in displayName. means parent's functions variables are accessible in child
+        //     }
+        //     displayName();
+        // }
+        // init();
+
+        //another example with two inner functions
+        // function outer(){
+        //     let username = "zulqarnain"
+        //     function innerOne(){
+        //         console.log("innerOne", username);
+        //     }
+        //     function innerTwo(){
+        //         console.log("innerTwo", username);
+        //     }
+        //     innerOne()
+        //     innerTwo()
+        // }
+        // outer()
+        // console.log("Outer", username);
+
+        //example what if sibling and parent try to access property of a child function
+        // function outer(){
+        //     let username = "zulqarnain"
+        //     // console.log("outer", secret); //secret is declared in child scope : not accessible
+        //     function innerOne(){
+        //         let secret = "mySecret"
+        //         console.log("innerOne", username);
+        //     }
+        //     function innerTwo(){
+        //         console.log("innerTwo", username);
+        //         console.log(secret); //secret is declared in sibling scope : not accessible
+        //     }
+        //     innerOne()
+        //     innerTwo()
+        // }
+        // outer()
+        // console.log("outer", username);
+
+
+
+        // Closure 
+        // function makeFunc() {
+        //     const name = "Mozilla";
+        //     function displayName() {
+        //         console.log(name);
+        //     }
+        //     return displayName; //agar displayName ka koi outer function hai to uska bhi complete scope sath by default return hoga due to lexical scoping in functions and this return making it a Closure
+        // }
+        // const myFunc = makeFunc();
+        // myFunc();
+        </script>
+
+        <script>
+            // document.getElementById("orange").onclick = function(){
+            //     document.body.style.backgroundColor = `orange`
+            // }
+            // document.getElementById("green").onclick = function(){
+            //     document.body.style.backgroundColor = `green`
+            // }
+            //what if got 10 or 100 color array , will add multiple functions in onclick? No!
+
+            //let's try with single function
+            // function clickHandler(color){
+            //     document.body.style.backgroundColor = `${color}`
+            // }
+
+            // document.getElementById('orange').onclick = clickHandler("orange") //problem here : this will run without button click
+            // document.getElementById('green').onclick = clickHandler("green") //same problem here
+
+
+            //so we need to change our function's definition
+            function clickHandler(color){
+                // document.body.style.backgroundColor = `${color}`
+                return function(){
+                    document.body.style.backgroundColor = `${color}`
+                }
+            }
+            document.getElementById('orange').onclick = clickHandler("orange")
+            document.getElementById('green').onclick = clickHandler("green")
+            //Problem Solved
+        </script>
+    </body>
+</html>
